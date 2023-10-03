@@ -3,14 +3,17 @@ Alice
 # role
 warrior
 # weapon
-
-# type
-leather
-# quality
+## type
+sword
+## quality
 fine
-# damage
-
-# amount
+## damage
+### type
+slash
+### amount
 1
 # armor
-
+## type
+leather
+## quality
+fine

@@ -1,58 +1,68 @@
 import os
-import re
+from pathlib import Path
 
 
 class MdDB:
-    def __init__(self, path=None):
-        self.path = path or os.path.join(os.getcwd(), "mdb")
-        if not os.path.exists(self.path):
-            os.makedirs(self.path)
+    def __init__(self, path: str = None) -> None:
+        self.path = Path(path or os.getcwd()) / "mdb"
+        self.path.mkdir(exist_ok=True)
 
-    def create(self, dictionary, filename, level=1):
+    def create(self, dictionary: dict, filename: str, level: int = 1) -> str:
         md = self._dict_to_md(dictionary, level)
         try:
-            with open(os.path.join(self.path, filename), "w") as f:
-                f.write(md)
+            (self.path / filename).write_text(md)
         except Exception as e:
-            print(f"An error occurred: {e}")
+            raise e
         return md
 
-    def _dict_to_md(self, dictionary, level):
+    def _dict_to_md(self, dictionary: dict, level: int) -> str:
         md = ""
         for key, value in dictionary.items():
-            md += level * "#" + " " + str(key) + "\n"
+            md += f"{level * '#'} {key}\n"
             if isinstance(value, dict):
                 md += self._dict_to_md(value, level + 1)
             else:
-                md += str(value) + "\n"
+                md += f"{value}\n"
         return md
 
-    def read(self, filename):
-        with open(os.path.join(self.path, filename), "r") as f:
-            lines = f.readlines()
-        return self._md_to_dict(lines)
+    def read(self, filename: str) -> dict:
+        md = (self.path / filename).read_text()
+        return self._md_to_dict(md)
 
-    def _md_to_dict(self, lines):
-        d = {}
-        key = None
-        value = []
+    def _md_to_dict(self, md: str) -> dict:
+        lines = md.splitlines()
+        output = {}
+        stack = []
         for line in lines:
-            match = re.match(r"(#+) (.*)", line)
-            if match:
-                if key is not None:
-                    d[key] = (
-                        "\n".join(value).strip()
-                        if "\n" not in value
-                        else self._md_to_dict(value)
-                    )
-                level, key = len(match.group(1)), match.group(2)
-                value = []
+            line = line.strip()
+            if not line:
+                continue
+            if line.startswith("#"):
+                level = len(line) - len(line.lstrip("#"))
+                key = line.lstrip("#").strip()
+                if level == 1:
+                    output[key] = {}
+                    stack = [key]
+                else:
+                    while len(stack) > level - 1:
+                        stack.pop()
+                    parent = output
+                    for k in stack:
+                        parent = parent[k]
+                    parent[key] = {}
+                    stack.append(key)
             else:
-                value.append(line.strip())
-        if key is not None:
-            d[key] = (
-                "\n".join(value).strip()
-                if "\n" not in value
-                else self._md_to_dict(value)
-            )
-        return d
+                key = stack[-1]
+                parent = output
+                for k in stack[:-1]:
+                    parent = parent[k]
+                try:
+                    value = int(line)
+                except ValueError:
+                    try:
+                        value = float(line)
+                    except ValueError:
+                        value = line
+                parent[key] = value
+
+        return output
