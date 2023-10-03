@@ -1,6 +1,10 @@
 {
     "name": "Alice",
-    "type": "noble",
-    "age": "18",
-    "gender": "female"
+    "role": "warrior",
+    "weapon": "",
+    "type": "leather",
+    "quality": "fine",
+    "damage": "",
+    "amount": "1",
+    "armor": ""
 }

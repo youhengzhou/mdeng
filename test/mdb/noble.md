@@ -1,8 +1,19 @@
 # name
 Alice
-# type
-noble
-# age
-18
-# gender
-female
+# role
+warrior
+# weapon
+## type
+sword
+## quality
+fine
+## damage
+### type
+slash
+### amount
+1
+# armor
+## type
+leather
+## quality
+fine
