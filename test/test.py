@@ -1,4 +1,6 @@
-mdg = MDEng()
+import mdeng
+
+mdg = mdeng.MdDB()
 
 noble = {
     "name": "Alice",

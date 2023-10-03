@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: mdeng
-Version: 1.0.0
+Version: 1.0.1
 Summary: A package for a Python Markdown parser engine
 Home-page: https://github.com/youhengzhou/mdeng
 Author: YouHeng Zhou
@@ -14,4 +14,23 @@ Description-Content-Type: text/markdown
 License-File: LICENSE
 
 # mdeng
+
 Markdown Engine for Python
+
+Please visit: https://pypi.org/project/mdeng/1.0.0/ for PyPI Package
+
+Please visit: https://github.com/youhengzhou/mdeng for Github repo
+
+# Download Package
+
+`py -m pip install mdeng -U`
+
+## In Your Python Files
+
+`import mdeng`
+
+`mdg = MdDB()`
+
+`mdg.create({}, 'sample.md')`
+
+`mdg.read('sample.md')`
