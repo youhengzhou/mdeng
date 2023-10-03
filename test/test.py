@@ -70,7 +70,7 @@ class MdDB:
 
 mdg = MdDB()
 
-output = {
+noble = {
     "name": "Alice",
     "role": "warrior",
     "weapon": {
@@ -87,13 +87,12 @@ output = {
     },
 }
 
-mdg.create(output, "noble.md")
-print(mdg.read("noble.md"))
+mdg.create(noble, "noble.md")
+md = mdg.read("noble.md")
 
-import jsoneng
+if md == noble:
+    print("test passed")
+else:
+    print("test failed")
 
-jdb = jsoneng.JsonDB(mdg.read("noble.md"))
-
-data = jdb.retrieve()
-
-mdg.create(data, "jdb.md")
+mdg.create(md, "noble2.md")
