@@ -28,7 +28,7 @@ This markdown engine is able to to take a dictionary such as:
 
 ![image](https://github.com/youhengzhou/mdeng/assets/60205850/dd40c1ff-3ab4-4a0c-b013-f7a131606996)
 
-and turn it into a markdonw file:
+and turn it into a markdown file:
 
 ![image](https://github.com/youhengzhou/mdeng/assets/60205850/c8798503-6941-40d9-8072-a0a80ee80528)
 
