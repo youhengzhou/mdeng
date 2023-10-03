@@ -22,4 +22,4 @@ Please visit: https://github.com/youhengzhou/mdeng for Github repo
 
 Here's a sample `noble.md` I created from the `test.py` I included in the test folder
 
-![image](https://github.com/youhengzhou/mdeng/assets/60205850/af2d671b-bfe8-4fc7-887c-f44f35e87124)
+![image](https://github.com/youhengzhou/mdeng/assets/60205850/20c7dad8-4909-4dcc-8e21-1a81d790a1a9)
