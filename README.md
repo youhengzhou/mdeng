@@ -12,14 +12,26 @@ Please visit: https://github.com/youhengzhou/mdeng for Github repo
 
 ## In Your Python Files
 
-`import mdeng`
+```
+import mdeng
 
-`mdg = MdDB()`
+mdg = MdDB()
 
-`mdg.create({}, 'sample.md')`
+mdg.create({}, 'sample.md')
 
-`mdg.read('sample.md')`
+mdg.read('sample.md')
+```
 
-Here's a sample `noble.md` I created from the `test.py` I included in the test folder
+For a sample of how it works, check the `test.py` in the test folder.
 
-![image](https://github.com/youhengzhou/mdeng/assets/60205850/20c7dad8-4909-4dcc-8e21-1a81d790a1a9)
+This markdown engine is able to to take a dictionary such as:
+
+![image](https://github.com/youhengzhou/mdeng/assets/60205850/dd40c1ff-3ab4-4a0c-b013-f7a131606996)
+
+and turn it into a markdonw file:
+
+![image](https://github.com/youhengzhou/mdeng/assets/60205850/c8798503-6941-40d9-8072-a0a80ee80528)
+
+it also supports reading a markdown file and returning a dictionary
+
+![image](https://github.com/youhengzhou/mdeng/assets/60205850/a03b5f97-792f-4075-81ec-32bdcb688742)
