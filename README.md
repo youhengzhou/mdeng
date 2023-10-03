@@ -35,3 +35,7 @@ and turn it into a markdown file:
 it also supports reading a markdown file and returning a dictionary
 
 ![image](https://github.com/youhengzhou/mdeng/assets/60205850/a03b5f97-792f-4075-81ec-32bdcb688742)
+
+also supports nested markdown entries as nested dictionaries, it can go even longer than tbe linter can!
+
+![image](https://github.com/youhengzhou/mdeng/assets/60205850/b737d1e3-15da-4e4d-878a-b6654fc5be03)
