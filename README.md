@@ -14,7 +14,7 @@ Please visit: https://github.com/youhengzhou/mdeng for Github repo
 
 `import mdeng`
 
-`mdg = MDEng()`
+`mdg = MdDB()`
 
 `mdg.create({}, 'sample.md')`
 

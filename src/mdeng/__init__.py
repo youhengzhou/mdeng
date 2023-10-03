@@ -2,7 +2,7 @@ import os
 import re
 
 
-class MDEng:
+class MdDB:
     def __init__(self, path=None):
         self.path = path or os.path.join(os.getcwd(), "mdb")
         if not os.path.exists(self.path):
