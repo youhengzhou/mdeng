@@ -28,12 +28,12 @@ This markdown engine is able to to take a dictionary such as:
 
 ![image](https://github.com/youhengzhou/mdeng/assets/60205850/dd40c1ff-3ab4-4a0c-b013-f7a131606996)
 
-and turn it into a markdown file:
+And turn it into a markdown file:
 
 ![image](https://github.com/youhengzhou/mdeng/assets/60205850/c8798503-6941-40d9-8072-a0a80ee80528)
 
-it also supports reading a markdown file and returning a dictionary
+It also supports reading a markdown file and returning a dictionary.
 
-also supports nested markdown entries as nested dictionaries, it can go even longer than tbe linter can!
+Also supports nested markdown entries as nested dictionaries, it can go even longer than tbe linter can!
 
 ![image](https://github.com/youhengzhou/mdeng/assets/60205850/b8c6481f-b7e5-4bd1-b5af-0b8c624f468b)
