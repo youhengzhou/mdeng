@@ -56,21 +56,23 @@ class MdDB:
                 parent = output
                 for k in stack[:-1]:
                     parent = parent[k]
-                try:
-                    value = int(line)
-                except ValueError:
+                if line.startswith("-"):
+                    value = line.lstrip("-").strip().split(", ")
+                else:
                     try:
-                        value = float(line)
+                        value = int(line)
                     except ValueError:
-                        value = line
+                        try:
+                            value = float(line)
+                        except ValueError:
+                            value = line
                 parent[key] = value
 
         return output
 
-    def delete(self, filename: str) -> None:
-        file_path = self.path / filename
-        if os.path.exists(file_path):
-            os.remove(file_path)
-            print(f"Deleted {filename}")
-        else:
-            print(f"The file {filename} does not exist")
+
+mdb = MdDB()
+
+a = mdb.read("lt.md")
+
+print(a)
