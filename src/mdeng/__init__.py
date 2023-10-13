@@ -74,14 +74,14 @@ class MdDB:
             if len(kv[0]) == 2:
                 out = {item[0]: int(item[1]) for item in kv}
             else:
-                out = kv[0][0]
+                out = line
         except ValueError:
             items = line.split(", ")
             kv = [item.split(" ") for item in items]
             if len(kv[0]) == 2:
                 out = {item[0]: int(item[1]) for item in kv}
             else:
-                out = kv[0][0]
+                out = line
         return out
 
     def delete(self, filename: str) -> None:
