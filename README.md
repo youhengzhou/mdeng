@@ -15,11 +15,13 @@ Please visit: https://github.com/youhengzhou/mdeng for Github repo
 ```
 import mdeng
 
-mdg = MdDB()
+mdb = mdeng.MdDB()
 
-mdg.create({}, 'sample.md')
+mdb.create({}, 'sample.md')
 
-mdg.read('sample.md')
+mdb.read('sample.md')
+
+mdb.delete('sample.md')
 ```
 
 For a sample of how it works, check the `test.py` in the test folder.

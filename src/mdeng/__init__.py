@@ -62,10 +62,27 @@ class MdDB:
                     try:
                         value = float(line)
                     except ValueError:
-                        value = line
+                        value = self.parse_list(line)
                 parent[key] = value
 
         return output
+
+    def parse_list(self, line):
+        try:
+            items = line.split(",")
+            kv = [item.split(" ") for item in items]
+            if len(kv[0]) == 2:
+                out = {item[0]: int(item[1]) for item in kv}
+            else:
+                out = kv[0][0]
+        except ValueError:
+            items = line.split(", ")
+            kv = [item.split(" ") for item in items]
+            if len(kv[0]) == 2:
+                out = {item[0]: int(item[1]) for item in kv}
+            else:
+                out = kv[0][0]
+        return out
 
     def delete(self, filename: str) -> None:
         file_path = self.path / filename
